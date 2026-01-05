@@ -112,7 +112,7 @@ class Shipping extends ResourceController
      */
     private function generateTrackingNumber()
     {
-        return 'TRK' . strtoupper(uniqid()) . rand(1000, 9999);
+        return 'TRK' . strtoupper(bin2hex(random_bytes(8))) . random_int(1000, 9999);
     }
 
     /**
@@ -122,7 +122,7 @@ class Shipping extends ResourceController
      */
     private function calculateEstimatedDelivery()
     {
-        $days = rand(3, 7);
+        $days = random_int(3, 7);
         return date('Y-m-d', strtotime("+{$days} days"));
     }
 
