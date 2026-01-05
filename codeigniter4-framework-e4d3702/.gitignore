@@ -1,0 +1,28 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Composer
+vendor/
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# CodeIgniter
+writable/cache/*
+writable/logs/*
+writable/session/*
+writable/uploads/*
+!writable/.htaccess
+
+# Application
+public/uploads/*
+!public/uploads/.htaccess
