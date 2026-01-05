@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "shipping-service-kelompok-5",
+		"name": "Shipping Service API - Kelompok 5",
+		"description": "API Collection for Shipping Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Shipping",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "order_id",
+							"value": "ORD-001",
+							"type": "text"
+						},
+						{
+							"key": "recipient_name",
+							"value": "John Doe",
+							"type": "text"
+						},
+						{
+							"key": "recipient_address",
+							"value": "Jl. Merdeka No. 123, Jakarta Pusat",
+							"type": "text"
+						},
+						{
+							"key": "recipient_phone",
+							"value": "081234567890",
+							"type": "text"
+						},
+						{
+							"key": "courier_service",
+							"value": "JNE",
+							"type": "text"
+						},
+						{
+							"key": "shipping_cost",
+							"value": "15000",
+							"type": "text"
+						},
+						{
+							"key": "weight",
+							"value": "2.5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/shipping/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"shipping",
+						"create"
+					]
+				},
+				"description": "Create a new shipping data"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shipping Status by Order ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/shipping/status/ORD-001",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"shipping",
+						"status",
+						"ORD-001"
+					]
+				},
+				"description": "Get shipping status by order ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Shipping Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/shipping",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"shipping"
+					]
+				},
+				"description": "Get all shipping data"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shipping by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/shipping/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"shipping",
+						"1"
+					]
+				},
+				"description": "Get shipping data by internal ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Shipping Data",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"in_transit\",\n    \"recipient_phone\": \"081234567999\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/shipping/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"shipping",
+						"1"
+					]
+				},
+				"description": "Update shipping data"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Shipping Data",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/shipping/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"shipping",
+						"1"
+					]
+				},
+				"description": "Delete shipping data"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

@@ -21,8 +21,13 @@ writable/cache/*
 writable/logs/*
 writable/session/*
 writable/uploads/*
+writable/debugbar/*
+writable/*.db
 !writable/.htaccess
 
 # Application
 public/uploads/*
 !public/uploads/.htaccess
+
+# Composer lock (optional - uncomment if you don't want to commit it)
+# composer.lock
