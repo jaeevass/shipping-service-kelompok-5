@@ -23,4 +23,30 @@ class ShippingController extends ResourceController
             'estimated_days' => $estimatedDays
         ]);
     }
+
+    public function status($order_id)
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('shippings');
+
+        $shipping = $builder->where('order_id', $order_id)->get()->getRow();
+
+        if (!$shipping) {
+            return $this->respond([
+                'status' => 'error',
+                'message' => 'Data shipping tidak ditemukan'
+            ], 404);
+        }
+
+        return $this->respond([
+            'status' => 'success',
+            'data' => [
+                'order_id' => $shipping->order_id,
+                'shipping_status' => $shipping->status,
+                'cost' => $shipping->cost,
+                'estimated_days' => $shipping->estimated_days
+            ]
+        ]);
+    }
+
 }
