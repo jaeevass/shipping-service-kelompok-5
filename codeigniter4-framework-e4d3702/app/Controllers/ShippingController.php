@@ -8,19 +8,19 @@ class ShippingController extends ResourceController
 {
     public function create()
     {
-        $order_id = $this->request->getPost('order_id');
+        // Ambil data dari body JSON
+        $data = $this->request->getJSON();
 
-        $data = [
-            'order_id' => $order_id,
-            'cost' => 20000,
-            'estimated_days' => 3,
-            'status' => 'processing'
-        ];
+        // Proses simpan ke database atau generate shipping_id
+        // Untuk contoh, kita hardcode dulu
+        $shippingId = 'SHP001';
+        $status = 'IN_DELIVERY';
+        $estimatedDays = 3;
 
-        // nanti disambung ke model
         return $this->respond([
-            'message' => 'Shipping created',
-            'data' => $data
+            'shipping_id' => $shippingId,
+            'status' => $status,
+            'estimated_days' => $estimatedDays
         ]);
     }
 }
