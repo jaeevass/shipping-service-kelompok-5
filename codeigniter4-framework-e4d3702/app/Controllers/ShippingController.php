@@ -24,29 +24,17 @@ class ShippingController extends ResourceController
         ]);
     }
 
-    public function status($order_id)
+    public function status($orderId)
     {
-        $db = \Config\Database::connect();
-        $builder = $db->table('shippings');
+        // Ambil data dari database berdasarkan orderId
+        // Misalnya hasil query:
+        $shipping = [
+            'shipping_id' => 'SHP001',
+            'status' => 'IN_DELIVERY',
+            'estimated_days' => 3
+        ];
 
-        $shipping = $builder->where('order_id', $order_id)->get()->getRow();
-
-        if (!$shipping) {
-            return $this->respond([
-                'status' => 'error',
-                'message' => 'Data shipping tidak ditemukan'
-            ], 404);
-        }
-
-        return $this->respond([
-            'status' => 'success',
-            'data' => [
-                'order_id' => $shipping->order_id,
-                'shipping_status' => $shipping->status,
-                'cost' => $shipping->cost,
-                'estimated_days' => $shipping->estimated_days
-            ]
-        ]);
+        return $this->respond($shipping);
     }
 
 }
